@@ -1442,7 +1442,7 @@ function renderOnboard(edit){
   if(!F)F=edit?JSON.parse(JSON.stringify(S.p)):{name:'',sex:'m',age:'',bw:'',goal:'muscle',level:'beg',eq:'gym',days:[0,1,3,4]};
   const ch=(k,v,l,sm)=>`<button class="chip ${F[k]===v?'on':''}" data-act="f" data-k="${k}" data-v="${v}">${l}${sm?`<small>${sm}</small>`:''}</button>`;
   const n=F.days.length;const c=cardioCount(n,F.goal);
-  return`${edit?header('عدّل بياناتك','أوزانك المسجلة تبقى كما هي.',false):`<div class="hello"><button class="chip langsw" data-act="lang" data-v="${LANG==='en'?'ar':'en'}">${LANG==='en'?'العربية':'English'}</button>${LOGO}<h1>مدرّبي</h1><p>مدربك الشخصي: جدول حديد وكارديو، أوزان تزيد معك كل أسبوع، وسلسلة تحمّسك تكمل.</p></div>`}
+  return`${edit?header('عدّل بياناتك','أوزانك المسجلة تبقى كما هي.',false):`<div class="hello"><button class="chip langsw" data-act="lang" data-v="${LANG==='en'?'ar':'en'}">${LANG==='en'?'العربية':'English'}</button>${LOGO}<h1>مدرّبي</h1><p>مدربك الشخصي: جدول حديد وكارديو، أوزان تزيد معك كل أسبوع، وسلسلة تحمّسك تكمل.</p></div><button class="btn ghost" data-act="import" style="margin:2px 0 16px">${T('عندك نسخة احتياطية؟ استرجعها','Have a backup? Restore it')}</button><input type="file" id="impFile" accept="application/json" hidden>`}
   <div class="field"><label for="fName">اسمك</label><input class="inp" id="fName" value="${esc(F.name)}" autocomplete="given-name"></div>
   <div class="field"><span class="lbl">الجنس</span><div class="chips">${ch('sex','m','ذكر')}${ch('sex','f','أنثى')}</div></div>
   <div class="row2"><div class="field"><label for="fBw">وزنك بالكيلو</label><input class="inp" id="fBw" type="number" inputmode="decimal" value="${esc(F.bw)}"></div>
